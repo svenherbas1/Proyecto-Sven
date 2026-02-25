@@ -3,222 +3,263 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mobile Cyber Threats</title>
+<title>Seguridad Digital - Phishing, Malware e Ingeniería Social</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Courier New',monospace;
-}
-
-:root{
---bg:#050505;
---card:#0d0d0d;
---border:#003300;
---green:#00ff41;
---red:#ff3333;
---orange:#ffaa00;
---blue:#3399ff;
---text:#a0ffa0;
-}
-
 body{
-background:var(--bg);
-color:var(--green);
-transition:0.5s;
+    margin:0;
+    font-family:'Segoe UI', sans-serif;
+    background:#0a0f1c;
+    color:white;
 }
 
-.header{
-text-align:center;
-padding:30px;
-border-bottom:2px solid #004400;
-background:linear-gradient(180deg,#0a1a0a,#050505);
+header{
+    background:linear-gradient(90deg,#001f3f,#003366);
+    padding:20px;
+    text-align:center;
 }
 
-.header img{
-width:170px;
-height:170px;
-object-fit:cover;
-border-radius:50%;
-border:3px solid var(--green);
-box-shadow:0 0 25px var(--green);
-margin-bottom:15px;
+header img{
+    width:120px;
+    border-radius:10px;
 }
 
-.header h1{
-letter-spacing:3px;
-text-shadow:0 0 15px var(--green);
+h1{
+    margin:10px 0;
 }
 
-.subtitle{
-font-size:13px;
-color:var(--text);
-margin-top:5px;
-}
-
-.container{
-max-width:900px;
-margin:auto;
-padding:20px;
+section{
+    padding:40px 10%;
 }
 
 .card{
-background:var(--card);
-border:1px solid var(--border);
-padding:18px;
-margin-bottom:20px;
-border-radius:12px;
-transition:0.3s;
+    background:#111827;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:10px;
+    box-shadow:0 0 15px rgba(0,255,255,0.2);
 }
 
-.card:hover{
-box-shadow:0 0 15px rgba(0,255,65,0.4);
-}
-
-.info-card{
-background:#081208;
-border:1px solid #006600;
-}
-
-.card h3{
-color:#fff;
-margin-bottom:10px;
-}
-
-.card p{
-font-size:14px;
-color:var(--text);
-line-height:1.5;
+.card img{
+    width:100%;
+    border-radius:10px;
+    margin-bottom:15px;
 }
 
 button{
-width:100%;
-padding:10px;
-margin-top:10px;
-border:2px solid var(--green);
-background:transparent;
-color:var(--green);
-cursor:pointer;
-transition:0.3s;
-border-radius:6px;
+    background:#00bcd4;
+    border:none;
+    padding:10px 15px;
+    border-radius:6px;
+    cursor:pointer;
+    color:black;
+    font-weight:bold;
 }
 
 button:hover{
-background:var(--green);
-color:#000;
+    background:#00ffff;
 }
 
-.alert{
-background:#330000 !important;
+.hidden{
+    display:none;
 }
 
-.footer{
-text-align:center;
-padding:20px;
-border-top:1px solid var(--border);
-margin-top:30px;
-font-size:12px;
-color:var(--text);
+footer{
+    background:#001f3f;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+
+.defense-list{
+    list-style: none;
+    padding: 0;
+}
+
+.defense-list li{
+    background:#111827;
+    margin-bottom:10px;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,255,255,0.2);
 }
 </style>
+
+<script>
+function toggleInfo(id){
+    const element = document.getElementById(id);
+    element.classList.toggle("hidden");
+}
+</script>
+
 </head>
 <body>
 
-<div class="header">
+<header>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAiE9DLEAZWL5QmiMoZZKOHYxBN0OVK7LEwQ&s">
+    <h1>Seguridad Digital</h1>
+    <p>Phishing • Malware • Ingeniería Social</p>
+</header>
 
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAiE9DLEAZWL5QmiMoZZKOHYxBN0OVK7LEwQ&s" alt="Cyber Security">
+<section>
+<h2>¿Qué es el Phishing?</h2>
+<p>Es un ataque donde los ciberdelincuentes se hacen pasar por una entidad legítima para robar contraseñas, datos bancarios o información personal.</p>
 
-<h1>⚠ MOBILE CYBER THREATS ⚠</h1>
-<div class="subtitle">Phishing | Malware | Ingeniería Social</div>
+<h2>¿Qué es el Malware?</h2>
+<p>Es software malicioso diseñado para dañar, espiar o robar información de dispositivos.</p>
 
+<h2>¿Qué es la Ingeniería Social?</h2>
+<p>Técnica psicológica utilizada para manipular a personas y obtener información confidencial.</p>
+</section>
+
+<section>
+<h2>10 Casos Reales (2021–2025)</h2>
+
+<!-- Caso 1 -->
+<div class="card">
+<img src="https://pixabay.com/get/gad73c56ad83dfa458c808c1f8dab8f4a660afabe3314f6ce755392f4d6700e3989d3a7bb7928567afcb067a9ae4dc975_1280.jpg" alt="FluBot phishing ejemplo">
+<h3>1. FluBot (2021)</h3>
+<p>Malware distribuido por SMS falsos que infectó millones de Android en Europa.</p>
+<button onclick="toggleInfo('c1')">Ver más</button>
+<div id="c1" class="hidden">
+<p>Robaba credenciales bancarias y contactos.</p>
+<p><strong>Fuente:</strong> Europol & Kaspersky 2021</p>
+</div>
 </div>
 
-<div class="container">
-
-<div class="card info-card">
-<h3>¿Qué es el Phishing?</h3>
-<p>
-Es una técnica de suplantación digital donde el atacante se hace pasar por una entidad confiable 
-para robar contraseñas, datos bancarios o información personal.
-</p>
+<!-- Caso 2 -->
+<div class="card">
+<img src="https://pixabay.com/get/gfdbbf44eb99d67d7db4ce8a2cd20f9808b4cd52a9bc378fc34e3edac5845f8a3df95eff16a64ce18379cfbc86d5fae8f_1280.jpg" alt="Spyware Pegasus concepto">
+<h3>2. Pegasus (2021)</h3>
+<p>Spyware que infectó móviles de periodistas y políticos.</p>
+<button onclick="toggleInfo('c2')">Ver más</button>
+<div id="c2" class="hidden">
+<p>Permitía acceso total al dispositivo.</p>
+<p><strong>Fuente:</strong> Amnistía Internacional 2021</p>
+</div>
 </div>
 
-<div class="card info-card">
-<h3>¿Qué es el Malware?</h3>
-<p>
-Es software malicioso que infecta dispositivos móviles con el objetivo de espiar, 
-robar información o bloquear el sistema.
-</p>
+<!-- Caso 3 -->
+<div class="card">
+<img src="https://pixabay.com/get/gfd88c37d92559da445508fb7bedb7cd035cb811556ca429c283fbee839522e745e0857059d34358cf4f9611102b56188_1280.jpg" alt="Ransomware ataque">
+<h3>3. Colonial Pipeline (2021)</h3>
+<p>Ataque ransomware que paralizó combustible en EE.UU.</p>
+<button onclick="toggleInfo('c3')">Ver más</button>
+<div id="c3" class="hidden">
+<p>Pagaron 4.4 millones de dólares.</p>
+<p><strong>Fuente:</strong> FBI 2021</p>
+</div>
 </div>
 
-<div class="card info-card">
-<h3>¿Qué es la Ingeniería Social?</h3>
-<p>
-Es una técnica basada en manipulación psicológica para engañar a una persona 
-y obtener información confidencial o acceso a sistemas.
-</p>
+<!-- Caso 4 -->
+<div class="card">
+<img src="https://pixabay.com/get/gcbe6e1e3cd71c378fa96f4de09ae80fbc4fa0c9eeb47b680997710bbb4f73d2d8954e2bc1ed7d094ce0980b46f04d1dcb_1280.jpg" alt="Estafa WhatsApp phishing">
+<h3>4. Estafas WhatsApp (2022)</h3>
+<p>Mensajes falsos pidiendo códigos de verificación.</p>
+<button onclick="toggleInfo('c4')">Ver más</button>
+<div id="c4" class="hidden">
+<p>Robaban cuentas y suplantaban identidad.</p>
+<p><strong>Fuente:</strong> INCIBE 2022</p>
+</div>
 </div>
 
-<div class="card info-card">
-<h3>¿Cómo defenderse?</h3>
-<p>
-🛡 Verificar siempre la URL antes de ingresar datos.<br>
-🛡 Activar autenticación en dos pasos (2FA).<br>
-🛡 No instalar aplicaciones fuera de tiendas oficiales.<br>
-🛡 No compartir códigos de verificación.<br>
-🛡 Mantener el sistema operativo actualizado.<br>
-🛡 Desconfiar de premios o mensajes urgentes.
-</p>
+<!-- Caso 5 -->
+<div class="card">
+<img src="https://pixabay.com/get/g7b60e7b27aa148516db3ce8da4eafac23e112c1cb8eacfb334f95969fa2074a0b3fc7fa0c9f4b424fa9a37f8a72c7e646_1280.jpg" alt="Phishing email concepto">
+<h3>5. Phishing Twitter/X (2023)</h3>
+<p>Correos falsos solicitando verificación de cuentas.</p>
+<button onclick="toggleInfo('c5')">Ver más</button>
+<div id="c5" class="hidden">
+<p>Robaban acceso a cuentas empresariales.</p>
+<p><strong>Fuente:</strong> BleepingComputer 2023</p>
+</div>
 </div>
 
-<div class="card info-card">
-<h3>Zona Interactiva</h3>
-
-<button onclick="simulateAttack()">Simular Ataque de Phishing</button>
-<p id="simulationResult"></p>
-
-<button onclick="showTip()">Mostrar Consejo de Seguridad</button>
-<p id="randomTip"></p>
-
+<!-- Caso 6 -->
+<div class="card">
+<img src="https://pixabay.com/get/gd3c4dple7bc21f78f8e32d73f7a0b449f118d8a3e91fcf52366fcb85fe2bccf0a4e07d5ce99b35deb396ea9b8f01a1e30_1280.jpg" alt="Malware Android concepto">
+<h3>6. Vultur Malware (2023)</h3>
+<p>Troyano bancario Android con grabación de pantalla.</p>
+<button onclick="toggleInfo('c6')">Ver más</button>
+<div id="c6" class="hidden">
+<p>Robaba credenciales financieras.</p>
+<p><strong>Fuente:</strong> ThreatFabric 2023</p>
+</div>
 </div>
 
+<!-- Caso 7 -->
+<div class="card">
+<img src="https://pixabay.com/get/gf2e3b9c8b7e72db04e23f602ec320185bcb4fc2f3215b0e69fc4515151a7b9dc202fdff6fa0d9be2c93f26bc96d68f52_1280.jpg" alt="Ingeniería social estafa">
+<h3>7. Malware Norcoreano (2024)</h3>
+<p>Ingeniería social con falsas ofertas laborales.</p>
+<button onclick="toggleInfo('c7')">Ver más</button>
+<div id="c7" class="hidden">
+<p>Robaban criptomonedas.</p>
+<p><strong>Fuente:</strong> Google Security 2024</p>
+</div>
 </div>
 
-<div class="footer">
-Proyecto de Grado | Vulnerabilidades en Dispositivos Móviles | Modelo CIA
+<!-- Caso 8 -->
+<div class="card">
+<img src="https://pixabay.com/get/gbe766bb5ca1dc15d89c40d8e74d05a59e5a1bfb1fa8dc2e1c84e23a17ed27b8f602cd87e29422c036270c1abaacef18dc_1280.jpg" alt="Correos phishing bancario">
+<h3>8. Phishing Bancario Global (2024)</h3>
+<p>Correos falsos simulando bancos internacionales.</p>
+<button onclick="toggleInfo('c8')">Ver más</button>
+<div id="c8" class="hidden">
+<p>Robaban tarjetas y credenciales.</p>
+<p><strong>Fuente:</strong> Kaspersky Report 2024</p>
+</div>
 </div>
 
-<script>
-function simulateAttack(){
-document.body.classList.add("alert");
+<!-- Caso 9 -->
+<div class="card">
+<img src="https://pixabay.com/get/gd4bc8cebce13ced32ec2f3b609d99a1248d19a2b57e88b5f0a8f7939058942f386d09f367d13f8e375904585b33aee72_1280.jpg" alt="Ransomware hospitales">
+<h3>9. Ransomware en Hospitales (2025)</h3>
+<p>Hospitales europeos afectados por malware.</p>
+<button onclick="toggleInfo('c9')">Ver más</button>
+<div id="c9" class="hidden">
+<p>Interrupción de servicios médicos.</p>
+<p><strong>Fuente:</strong> ENISA 2025</p>
+</div>
+</div>
 
-let result=document.getElementById("simulationResult");
-result.innerHTML="🚨 Simulación: Has hecho clic en un enlace falso.<br>🔓 Tus credenciales podrían estar comprometidas.";
-result.style.color="red";
+<!-- Caso 10 -->
+<div class="card">
+<img src="https://pixabay.com/get/gabc4a1d30dae4bdb455c2151c956117fdf49df1f4bcb6f69e92a341711294921aeb1b98c35f27b3c4bfc2878d1e35e81e_1280.jpg" alt="APK maliciosa concepto">
+<h3>10. APK Bancaria Falsa (2025)</h3>
+<p>Aplicaciones falsas que robaban datos financieros.</p>
+<button onclick="toggleInfo('c10')">Ver más</button>
+<div id="c10" class="hidden">
+<p>Control remoto del dispositivo.</p>
+<p><strong>Fuente:</strong> TechRadar 2025</p>
+</div>
+</div>
 
-setTimeout(()=>{
-document.body.classList.remove("alert");
-result.innerHTML+="<br><br>🛡 Esto fue una simulación educativa.";
-},3000);
-}
+</section>
 
-function showTip(){
-let tips=[
-"Activa autenticación en dos pasos.",
-"No compartas códigos de verificación.",
-"Revisa la dirección web antes de iniciar sesión.",
-"No descargues aplicaciones externas.",
-"Mantén actualizado tu dispositivo."
-];
+<!-- SECCIÓN DE DEFENSA -->
 
-let random=tips[Math.floor(Math.random()*tips.length)];
-let tipBox=document.getElementById("randomTip");
-tipBox.innerHTML="🛡 "+random;
-tipBox.style.color="#00ff41";
-}
-</script>
+<section>
+<h2>Cómo Defenderse</h2>
+
+<ul class="defense-list">
+<li>🔒 <strong>Evitar enlaces sospechosos:</strong> No hacer clic en correos o mensajes desconocidos.</li>
+<li>🛡️ <strong>Verificar URLs:</strong> Revisar HTTPS y dominio antes de ingresar datos.</li>
+<li>💻 Mantén tu dispositivo y apps actualizadas.</li>
+<li>🔐 Activa autenticación en dos pasos.</li>
+<li>📧 Usa filtros anti-phishing en tu correo.</li>
+<li>🪪 No compartas contraseñas o códigos con nadie.</li>
+<li>🛑 No descargues apps fuera de tiendas oficiales.</li>
+<li>🔍 Usa antivirus confiables.</li>
+<li>🧠 Educa a familiares y colegas sobre ingeniería social.</li>
+<li>☎️ Reporta ataques a las autoridades.</li>
+</ul>
+
+</section>
+
+<footer>
+Proyecto Educativo - Seguridad Informática 2026
+</footer>
 
 </body>
 </html>
