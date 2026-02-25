@@ -3,10 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mobile Cyber Threats | Phishing - Malware - Ingeniería Social</title>
+<title>Mobile Cyber Threats</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Courier New',monospace;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Courier New',monospace;
+}
 
 :root{
 --bg:#050505;
@@ -22,13 +27,24 @@
 body{
 background:var(--bg);
 color:var(--green);
+transition:0.5s;
 }
 
 .header{
 text-align:center;
-padding:25px;
+padding:30px;
 border-bottom:2px solid #004400;
 background:linear-gradient(180deg,#0a1a0a,#050505);
+}
+
+.header img{
+width:170px;
+height:170px;
+object-fit:cover;
+border-radius:50%;
+border:3px solid var(--green);
+box-shadow:0 0 25px var(--green);
+margin-bottom:15px;
 }
 
 .header h1{
@@ -37,7 +53,7 @@ text-shadow:0 0 15px var(--green);
 }
 
 .subtitle{
-font-size:12px;
+font-size:13px;
 color:var(--text);
 margin-top:5px;
 }
@@ -48,22 +64,12 @@ margin:auto;
 padding:20px;
 }
 
-.controls input, .controls select{
-width:100%;
-padding:10px;
-margin-bottom:10px;
-background:#0a0a0a;
-border:1px solid var(--green);
-color:var(--green);
-}
-
 .card{
 background:var(--card);
 border:1px solid var(--border);
-padding:15px;
+padding:18px;
 margin-bottom:20px;
-border-radius:10px;
-cursor:pointer;
+border-radius:12px;
 transition:0.3s;
 }
 
@@ -71,73 +77,32 @@ transition:0.3s;
 box-shadow:0 0 15px rgba(0,255,65,0.4);
 }
 
-.card img{
-width:100%;
-height:200px;
-object-fit:cover;
-border-radius:8px;
-margin-bottom:10px;
-filter:brightness(0.75);
+.info-card{
+background:#081208;
+border:1px solid #006600;
 }
 
 .card h3{
 color:#fff;
-font-size:15px;
-}
-
-.type{
-font-size:12px;
-color:var(--orange);
+margin-bottom:10px;
 }
 
 .card p{
-font-size:13px;
+font-size:14px;
 color:var(--text);
-margin-top:6px;
+line-height:1.5;
 }
-
-.badge{
-float:right;
-padding:4px 10px;
-border-radius:15px;
-font-size:11px;
-font-weight:bold;
-color:#000;
-}
-
-.phishing{background:var(--red);}
-.malware{background:var(--orange);}
-.social{background:var(--blue);}
-
-.modal{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,0.95);
-display:none;
-align-items:center;
-justify-content:center;
-padding:20px;
-}
-
-.modal-content{
-background:var(--card);
-border:2px solid var(--green);
-padding:25px;
-max-width:700px;
-width:100%;
-border-radius:10px;
-}
-
-.modal h2{color:#fff;margin-bottom:10px;}
-.modal p{color:var(--text);margin-bottom:10px;}
 
 button{
 width:100%;
 padding:10px;
+margin-top:10px;
 border:2px solid var(--green);
 background:transparent;
 color:var(--green);
 cursor:pointer;
+transition:0.3s;
+border-radius:6px;
 }
 
 button:hover{
@@ -145,11 +110,15 @@ background:var(--green);
 color:#000;
 }
 
+.alert{
+background:#330000 !important;
+}
+
 .footer{
 text-align:center;
 padding:20px;
 border-top:1px solid var(--border);
-margin-top:20px;
+margin-top:30px;
 font-size:12px;
 color:var(--text);
 }
@@ -158,82 +127,63 @@ color:var(--text);
 <body>
 
 <div class="header">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAiE9DLEAZWL5QmiMoZZKOHYxBN0OVK7LEwQ&s" alt="Cyber Security">
+
 <h1>⚠ MOBILE CYBER THREATS ⚠</h1>
 <div class="subtitle">Phishing | Malware | Ingeniería Social</div>
+
 </div>
 
 <div class="container">
 
-<div class="controls">
-<input type="text" id="search" placeholder="Buscar caso...">
-<select id="filter">
-<option value="all">Filtrar por tipo</option>
-<option value="phishing">Phishing</option>
-<option value="malware">Malware</option>
-<option value="social">Ingeniería Social</option>
-</select>
+<div class="card info-card">
+<h3>¿Qué es el Phishing?</h3>
+<p>
+Es una técnica de suplantación digital donde el atacante se hace pasar por una entidad confiable 
+para robar contraseñas, datos bancarios o información personal.
+</p>
 </div>
 
-<!-- PHISHING -->
-<div class="card" data-type="phishing" onclick="openCase('Smishing Bancario','SMS falso que redirige a página clonada del banco.','Confidencialidad')">
-<span class="badge phishing">PHISHING</span>
-<img src="https://images.unsplash.com/photo-1591696205602-2f950c417cb9">
-<h3>Smishing Bancario</h3>
-<span class="type">Ataque por SMS</span>
-<p>Enlace fraudulento roba credenciales bancarias.</p>
+<div class="card info-card">
+<h3>¿Qué es el Malware?</h3>
+<p>
+Es software malicioso que infecta dispositivos móviles con el objetivo de espiar, 
+robar información o bloquear el sistema.
+</p>
 </div>
 
-<div class="card" data-type="phishing" onclick="openCase('Phishing Instagram','Página falsa imita login de Instagram.','Confidencialidad')">
-<span class="badge phishing">PHISHING</span>
-<img src="https://images.unsplash.com/photo-1611605698335-8b1569810432">
-<h3>Instagram Fake Login</h3>
-<span class="type">Clonación de red social</span>
-<p>Robo de usuario y contraseña.</p>
+<div class="card info-card">
+<h3>¿Qué es la Ingeniería Social?</h3>
+<p>
+Es una técnica basada en manipulación psicológica para engañar a una persona 
+y obtener información confidencial o acceso a sistemas.
+</p>
 </div>
 
-<!-- MALWARE -->
-<div class="card" data-type="malware" onclick="openCase('APK Espía','Aplicación maliciosa instalada fuera de Play Store.','Confidencialidad')">
-<span class="badge malware">MALWARE</span>
-<img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
-<h3>APK Espía</h3>
-<span class="type">App maliciosa</span>
-<p>Robo de fotos, contactos y ubicación.</p>
+<div class="card info-card">
+<h3>¿Cómo defenderse?</h3>
+<p>
+🛡 Verificar siempre la URL antes de ingresar datos.<br>
+🛡 Activar autenticación en dos pasos (2FA).<br>
+🛡 No instalar aplicaciones fuera de tiendas oficiales.<br>
+🛡 No compartir códigos de verificación.<br>
+🛡 Mantener el sistema operativo actualizado.<br>
+🛡 Desconfiar de premios o mensajes urgentes.
+</p>
 </div>
 
-<div class="card" data-type="malware" onclick="openCase('Ransomware Android','Cifrado completo del dispositivo móvil.','Disponibilidad')">
-<span class="badge malware">MALWARE</span>
-<img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b">
-<h3>Ransomware Android</h3>
-<span class="type">Secuestro digital</span>
-<p>Bloqueo del teléfono hasta pagar rescate.</p>
-</div>
+<div class="card info-card">
+<h3>Zona Interactiva</h3>
 
-<!-- INGENIERÍA SOCIAL -->
-<div class="card" data-type="social" onclick="openCase('Falso Soporte Google','Llamada fingiendo ser soporte técnico.','Integridad')">
-<span class="badge social">SOCIAL</span>
-<img src="https://images.unsplash.com/photo-1584433144859-1fc3ab64a957">
-<h3>Falso Soporte Técnico</h3>
-<span class="type">Manipulación psicológica</span>
-<p>Obtención de códigos de verificación.</p>
-</div>
+<button onclick="simulateAttack()">Simular Ataque de Phishing</button>
+<p id="simulationResult"></p>
 
-<div class="card" data-type="social" onclick="openCase('Premio Falso WhatsApp','Mensaje promete premio a cambio de datos.','Confidencialidad')">
-<span class="badge social">SOCIAL</span>
-<img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7">
-<h3>Premio Falso</h3>
-<span class="type">Engaño emocional</span>
-<p>Obtención de información personal.</p>
-</div>
+<button onclick="showTip()">Mostrar Consejo de Seguridad</button>
+<p id="randomTip"></p>
 
 </div>
 
-<div class="modal" id="modal">
-<div class="modal-content">
-<h2 id="mTitle"></h2>
-<p id="mDesc"></p>
-<p id="mCIA"></p>
-<button onclick="closeModal()">CERRAR</button>
-</div>
 </div>
 
 <div class="footer">
@@ -241,37 +191,32 @@ Proyecto de Grado | Vulnerabilidades en Dispositivos Móviles | Modelo CIA
 </div>
 
 <script>
-const search=document.getElementById("search");
-const filter=document.getElementById("filter");
-const cards=document.querySelectorAll(".card");
+function simulateAttack(){
+document.body.classList.add("alert");
 
-search.addEventListener("input",applyFilter);
-filter.addEventListener("change",applyFilter);
+let result=document.getElementById("simulationResult");
+result.innerHTML="🚨 Simulación: Has hecho clic en un enlace falso.<br>🔓 Tus credenciales podrían estar comprometidas.";
+result.style.color="red";
 
-function applyFilter(){
-let s=search.value.toLowerCase();
-let f=filter.value;
-
-cards.forEach(card=>{
-let text=card.innerText.toLowerCase();
-let type=card.getAttribute("data-type");
-
-let matchText=text.includes(s);
-let matchType=(f==="all"||type===f);
-
-card.style.display=(matchText&&matchType)?"block":"none";
-});
+setTimeout(()=>{
+document.body.classList.remove("alert");
+result.innerHTML+="<br><br>🛡 Esto fue una simulación educativa.";
+},3000);
 }
 
-function openCase(title,desc,cia){
-document.getElementById("modal").style.display="flex";
-document.getElementById("mTitle").innerText=title;
-document.getElementById("mDesc").innerText=desc;
-document.getElementById("mCIA").innerText="Modelo CIA afectado: "+cia;
-}
+function showTip(){
+let tips=[
+"Activa autenticación en dos pasos.",
+"No compartas códigos de verificación.",
+"Revisa la dirección web antes de iniciar sesión.",
+"No descargues aplicaciones externas.",
+"Mantén actualizado tu dispositivo."
+];
 
-function closeModal(){
-document.getElementById("modal").style.display="none";
+let random=tips[Math.floor(Math.random()*tips.length)];
+let tipBox=document.getElementById("randomTip");
+tipBox.innerHTML="🛡 "+random;
+tipBox.style.color="#00ff41";
 }
 </script>
 
