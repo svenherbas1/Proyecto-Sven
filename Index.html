@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobile Cyber Threats | Phishing - Malware - Ingeniería Social</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Courier New',monospace;}
+
+:root{
+--bg:#050505;
+--card:#0d0d0d;
+--border:#003300;
+--green:#00ff41;
+--red:#ff3333;
+--orange:#ffaa00;
+--blue:#3399ff;
+--text:#a0ffa0;
+}
+
+body{
+background:var(--bg);
+color:var(--green);
+}
+
+.header{
+text-align:center;
+padding:25px;
+border-bottom:2px solid #004400;
+background:linear-gradient(180deg,#0a1a0a,#050505);
+}
+
+.header h1{
+letter-spacing:3px;
+text-shadow:0 0 15px var(--green);
+}
+
+.subtitle{
+font-size:12px;
+color:var(--text);
+margin-top:5px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+.controls input, .controls select{
+width:100%;
+padding:10px;
+margin-bottom:10px;
+background:#0a0a0a;
+border:1px solid var(--green);
+color:var(--green);
+}
+
+.card{
+background:var(--card);
+border:1px solid var(--border);
+padding:15px;
+margin-bottom:20px;
+border-radius:10px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.card:hover{
+box-shadow:0 0 15px rgba(0,255,65,0.4);
+}
+
+.card img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:8px;
+margin-bottom:10px;
+filter:brightness(0.75);
+}
+
+.card h3{
+color:#fff;
+font-size:15px;
+}
+
+.type{
+font-size:12px;
+color:var(--orange);
+}
+
+.card p{
+font-size:13px;
+color:var(--text);
+margin-top:6px;
+}
+
+.badge{
+float:right;
+padding:4px 10px;
+border-radius:15px;
+font-size:11px;
+font-weight:bold;
+color:#000;
+}
+
+.phishing{background:var(--red);}
+.malware{background:var(--orange);}
+.social{background:var(--blue);}
+
+.modal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.95);
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px;
+}
+
+.modal-content{
+background:var(--card);
+border:2px solid var(--green);
+padding:25px;
+max-width:700px;
+width:100%;
+border-radius:10px;
+}
+
+.modal h2{color:#fff;margin-bottom:10px;}
+.modal p{color:var(--text);margin-bottom:10px;}
+
+button{
+width:100%;
+padding:10px;
+border:2px solid var(--green);
+background:transparent;
+color:var(--green);
+cursor:pointer;
+}
+
+button:hover{
+background:var(--green);
+color:#000;
+}
+
+.footer{
+text-align:center;
+padding:20px;
+border-top:1px solid var(--border);
+margin-top:20px;
+font-size:12px;
+color:var(--text);
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>⚠ MOBILE CYBER THREATS ⚠</h1>
+<div class="subtitle">Phishing | Malware | Ingeniería Social</div>
+</div>
+
+<div class="container">
+
+<div class="controls">
+<input type="text" id="search" placeholder="Buscar caso...">
+<select id="filter">
+<option value="all">Filtrar por tipo</option>
+<option value="phishing">Phishing</option>
+<option value="malware">Malware</option>
+<option value="social">Ingeniería Social</option>
+</select>
+</div>
+
+<!-- PHISHING -->
+<div class="card" data-type="phishing" onclick="openCase('Smishing Bancario','SMS falso que redirige a página clonada del banco.','Confidencialidad')">
+<span class="badge phishing">PHISHING</span>
+<img src="https://images.unsplash.com/photo-1591696205602-2f950c417cb9">
+<h3>Smishing Bancario</h3>
+<span class="type">Ataque por SMS</span>
+<p>Enlace fraudulento roba credenciales bancarias.</p>
+</div>
+
+<div class="card" data-type="phishing" onclick="openCase('Phishing Instagram','Página falsa imita login de Instagram.','Confidencialidad')">
+<span class="badge phishing">PHISHING</span>
+<img src="https://images.unsplash.com/photo-1611605698335-8b1569810432">
+<h3>Instagram Fake Login</h3>
+<span class="type">Clonación de red social</span>
+<p>Robo de usuario y contraseña.</p>
+</div>
+
+<!-- MALWARE -->
+<div class="card" data-type="malware" onclick="openCase('APK Espía','Aplicación maliciosa instalada fuera de Play Store.','Confidencialidad')">
+<span class="badge malware">MALWARE</span>
+<img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
+<h3>APK Espía</h3>
+<span class="type">App maliciosa</span>
+<p>Robo de fotos, contactos y ubicación.</p>
+</div>
+
+<div class="card" data-type="malware" onclick="openCase('Ransomware Android','Cifrado completo del dispositivo móvil.','Disponibilidad')">
+<span class="badge malware">MALWARE</span>
+<img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b">
+<h3>Ransomware Android</h3>
+<span class="type">Secuestro digital</span>
+<p>Bloqueo del teléfono hasta pagar rescate.</p>
+</div>
+
+<!-- INGENIERÍA SOCIAL -->
+<div class="card" data-type="social" onclick="openCase('Falso Soporte Google','Llamada fingiendo ser soporte técnico.','Integridad')">
+<span class="badge social">SOCIAL</span>
+<img src="https://images.unsplash.com/photo-1584433144859-1fc3ab64a957">
+<h3>Falso Soporte Técnico</h3>
+<span class="type">Manipulación psicológica</span>
+<p>Obtención de códigos de verificación.</p>
+</div>
+
+<div class="card" data-type="social" onclick="openCase('Premio Falso WhatsApp','Mensaje promete premio a cambio de datos.','Confidencialidad')">
+<span class="badge social">SOCIAL</span>
+<img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7">
+<h3>Premio Falso</h3>
+<span class="type">Engaño emocional</span>
+<p>Obtención de información personal.</p>
+</div>
+
+</div>
+
+<div class="modal" id="modal">
+<div class="modal-content">
+<h2 id="mTitle"></h2>
+<p id="mDesc"></p>
+<p id="mCIA"></p>
+<button onclick="closeModal()">CERRAR</button>
+</div>
+</div>
+
+<div class="footer">
+Proyecto de Grado | Vulnerabilidades en Dispositivos Móviles | Modelo CIA
+</div>
+
+<script>
+const search=document.getElementById("search");
+const filter=document.getElementById("filter");
+const cards=document.querySelectorAll(".card");
+
+search.addEventListener("input",applyFilter);
+filter.addEventListener("change",applyFilter);
+
+function applyFilter(){
+let s=search.value.toLowerCase();
+let f=filter.value;
+
+cards.forEach(card=>{
+let text=card.innerText.toLowerCase();
+let type=card.getAttribute("data-type");
+
+let matchText=text.includes(s);
+let matchType=(f==="all"||type===f);
+
+card.style.display=(matchText&&matchType)?"block":"none";
+});
+}
+
+function openCase(title,desc,cia){
+document.getElementById("modal").style.display="flex";
+document.getElementById("mTitle").innerText=title;
+document.getElementById("mDesc").innerText=desc;
+document.getElementById("mCIA").innerText="Modelo CIA afectado: "+cia;
+}
+
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
+</script>
+
+</body>
+</html>
