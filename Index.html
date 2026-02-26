@@ -260,6 +260,58 @@ function toggleInfo(id){
 <footer>
 Proyecto Educativo - Seguridad Informática 2026
 </footer>
+<!-- SECCIÓN SCANNER QR -->
 
+<section>
+<h2>Escáner de Código QR</h2>
+
+<div id="reader" style="width:300px; margin:auto;"></div>
+<p id="resultadoQR" style="text-align:center; margin-top:15px;"></p>
+
+<button onclick="iniciarQR()">Iniciar Escáner</button>
+<button onclick="detenerQR()">Detener Escáner</button>
+
+</section>
+
+<!-- Librería QR -->
+<script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
+<script>
+let qrScanner;
+
+function iniciarQR(){
+    qrScanner = new Html5Qrcode("reader");
+    qrScanner.start(
+        { facingMode: "environment" }, // usa cámara trasera
+        {
+            fps: 10,
+            qrbox: 250
+        },
+        (decodedText) => {
+            document.getElementById("resultadoQR").innerHTML =
+                "<strong>Resultado:</strong> " + decodedText;
+
+            // Si es un enlace, lo abre automáticamente
+            if(decodedText.startsWith("http")){
+                window.open(decodedText, "_blank");
+            }
+        },
+        (errorMessage) => {
+            // errores ignorados
+        }
+    ).catch(err => {
+        alert("Error al iniciar cámara: " + err);
+    });
+}
+
+function detenerQR(){
+    if(qrScanner){
+        qrScanner.stop().then(() => {
+            document.getElementById("reader").innerHTML = "";
+        });
+    }
+}
+</script>
 </body>
 </html>
+
